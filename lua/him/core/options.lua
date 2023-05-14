@@ -51,6 +51,4 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 -- opt.spelllang = "en_gb,cjk" -- use cjk to prevent Asian words from flagging up as errors
 -- opt.spelloptions = "camel"
 
-
-
-print('run in option')
+-- print('run in option')

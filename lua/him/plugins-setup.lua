@@ -137,8 +137,15 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- python env check
 	use("plytophogy/vim-virtualenv")
 	use("PieterjanMontens/vim-pipenv")
+
+	-- todo-comments
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
 
 	if packer_bootstrap then
 		require("him.plugins.comment")

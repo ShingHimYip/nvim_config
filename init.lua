@@ -24,5 +24,6 @@ require("him.plugins.gitsigns")
 require("him.plugins.colorizer")
 require("him.plugins.zen-mode")
 require("him.plugins.harpoon")
+require("him.plugins.todo-comments")
 
-print("hi init.lua")
+-- print("hi init.lua")

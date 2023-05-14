@@ -91,4 +91,4 @@ vim.keymap.set("n", "<Leader>ii", "<cmd>PyrightOrganizeImports<CR>")
 --temp
 vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
 
-print("run in keymaps")
+-- print("run in keymaps")
