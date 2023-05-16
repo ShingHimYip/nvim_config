@@ -70,3 +70,7 @@ todocomment.setup({
 		-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 	},
 })
+
+--keymaps:
+--
+vim.keymap.set("n", ";g", "<cmd>TodoTelescope<CR>")

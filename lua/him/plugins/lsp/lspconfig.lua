@@ -126,3 +126,11 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+-- keymaps
+
+-- restart lsp server (not on youtube nvim video)
+vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- python lsp
+vim.keymap.set("n", "<Leader>ii", "<cmd>PyrightOrganizeImports<CR>")

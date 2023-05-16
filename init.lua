@@ -25,5 +25,8 @@ require("him.plugins.colorizer")
 require("him.plugins.zen-mode")
 require("him.plugins.harpoon")
 require("him.plugins.todo-comments")
+require("him.plugins.undotree")
+require("him.plugins.barbar")
+require("him.plugins.vim-fugitive")
 
 -- print("hi init.lua")

@@ -57,36 +57,28 @@ vim.keymap.set("n", "<c-w>h", "<c-w>s") -- horizontal split window
 vim.keymap.set("n", "<c-w>x", ":close<CR>") -- close current split window
 vim.keymap.set("n", "<c-w>m", ":MaximizerToggle<CR>") -- toggle split window maximization
 
+-- vim-maximizer
+vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
---
--- restart lsp server (not on youtube nvim video)
-vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
--- vim-maximizer
-vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- telescope
 -- inside the telescope.lua (him/plugins/telescope.lua)
 
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+-- undotree
 
 -- Barbar tab management
-vim.keymap.set("n", "<c-n>", "<cmd>BufferNext<CR>")
-vim.keymap.set("n", "<c-m>", "<cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<c-x>", "<cmd>BufferClose<CR>")
 
 -- Fugitive Git keymaps
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set("n", "<leader>gj", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "<leader>gf", "<cmd>diffget //3<CR>")
 
 -- python lsp
-vim.keymap.set("n", "<Leader>ii", "<cmd>PyrightOrganizeImports<CR>")
 
 -- harpoon
 -- inside the harpoon.lua (him/plugins/harpoon.lua)
+
+-- Todo comment
 
 --temp
 vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
