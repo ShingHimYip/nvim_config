@@ -28,5 +28,6 @@ require("him.plugins.todo-comments")
 require("him.plugins.undotree")
 require("him.plugins.barbar")
 require("him.plugins.vim-fugitive")
+require("him.plugins.obsidian")
 
 -- print("hi init.lua")

@@ -83,6 +83,10 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
+	use("uga-rosa/cmp-dictionary") -- dictionary source for nvim-cmp
+	use("f3fora/cmp-spell") -- spell source for nvim-cmp
+	use("hrsh7th/cmp-calc") -- calculator source for nvim-cmp
+	use("kdheepak/cmp-latex-symbols") --latex source for nvim-cmp
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -146,6 +150,9 @@ return packer.startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
+
+	-- obsidian extension
+	use("epwalsh/obsidian.nvim")
 
 	if packer_bootstrap then
 		require("him.plugins.comment")
