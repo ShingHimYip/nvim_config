@@ -16,6 +16,9 @@ vim.keymap.set("n", "-", "<C-x>")
 --Delete a word backword
 vim.keymap.set("n", "dw", 'vb"_d')
 
+--go back using shift w
+vim.keymap.set("n", "W", "b")
+
 --Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 
@@ -59,6 +62,19 @@ vim.keymap.set("n", "<c-w>m", ":MaximizerToggle<CR>") -- toggle split window max
 
 -- vim-maximizer
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+
+-- reverse indent and indent
+-- -- Set mappings in insert mode
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true, silent = true })
+vim.keymap.set("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
+
+-- Set mappings in normal mode
+vim.keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
+vim.keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
+
+-- Set mappings in visual mode
+vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 
 ----------------------
 -- Plugin Keybinds
