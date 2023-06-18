@@ -111,6 +111,9 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
+	-- intellisense with lsp
+	-- use({ "neoclide/coc.nvim", branch = "release" })
+
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
@@ -152,7 +155,10 @@ return packer.startup(function(use)
 	})
 
 	-- obsidian extension
-	use("epwalsh/obsidian.nvim")
+	-- use("epwalsh/obsidian.nvim")
+
+	-- python jupyter notebook
+	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
 
 	if packer_bootstrap then
 		require("him.plugins.comment")
