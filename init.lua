@@ -5,6 +5,8 @@ require("him.plugins-setup")
 require("him.core.options")
 require("him.core.keymaps")
 require("him.core.colorscheme")
+-- python venv setting
+require("him.core.py-venv-setting")
 
 -- plugin setting :
 require("him.plugins.comment")
@@ -31,8 +33,5 @@ require("him.plugins.vim-fugitive")
 require("him.plugins.obsidian")
 require("him.plugins.liveServer")
 require("him.plugins.magma-nvim")
-
--- python venv config
-vim.g.python3_host_prog = os.getenv("VIRTUAL_ENV") and os.getenv("VIRTUAL_ENV") .. "/bin/python" or "/usr/bin/python3"
 
 -- print("hi init.lua")

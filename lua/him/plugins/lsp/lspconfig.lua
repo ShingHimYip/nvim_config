@@ -43,6 +43,17 @@ local on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
+
+	if client.name == "pyright" then
+		local cwd = vim.fn.getcwd()
+		if vim.fn.glob(cwd .. "/venv") ~= "" then
+			client.config.settings.python.pythonPath = cwd .. "/venv/bin/python"
+		elseif vim.fn.glob(cwd .. "/.venv") ~= "" then
+			client.config.settings.python.pythonPath = cwd .. "/.venv/bin/python"
+		else
+			client.config.settings.python.pythonPath = "/usr/bin/python3"
+		end
+	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)

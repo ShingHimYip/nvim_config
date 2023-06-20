@@ -145,8 +145,8 @@ return packer.startup(function(use)
 	})
 
 	-- python env check
-	use("plytophogy/vim-virtualenv")
-	use("PieterjanMontens/vim-pipenv")
+	-- use("plytophogy/vim-virtualenv")
+	-- use("PieterjanMontens/vim-pipenv")
 
 	-- todo-comments
 	use({
