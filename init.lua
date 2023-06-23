@@ -19,6 +19,8 @@ require("him.plugins.lsp.mason")
 require("him.plugins.lsp.lspsaga")
 require("him.plugins.lsp.lspconfig")
 require("him.plugins.lsp.null-ls")
+-- lsp wrap diagnostics text
+require("him.plugins.lsp_virtual_text_config")
 
 require("him.plugins.autopairs")
 require("him.plugins.treesitter")

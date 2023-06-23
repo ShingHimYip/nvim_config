@@ -17,5 +17,3 @@ saga.setup({
 		},
 	},
 })
-
-vim.cmd([[autocmd VimResized * :lua require('lspsaga').resize_lsp_popup()]])
