@@ -18,6 +18,17 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
+local function get_python_interpreter_path()
+	local cwd = vim.fn.getcwd()
+	if vim.fn.glob(cwd .. "/venv") ~= "" then
+		return cwd .. "/venv/bin/python"
+	elseif vim.fn.glob(cwd .. "/.venv") ~= "" then
+		return cwd .. "/.venv/bin/python"
+	else
+		return "/usr/bin/python3"
+	end
+end
+
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -103,6 +114,11 @@ lspconfig["emmet_ls"].setup({
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	root_dir = function()
+		print("in the lsp pyright")
+		print(vim.fn.getcwd())
+		return vim.fn.getcwd()
+	end,
 	filetypes = { "python" },
 	settings = {
 		pyright = {
@@ -113,6 +129,14 @@ lspconfig["pyright"].setup({
 				diagnosticMode = "workspace",
 				autoImportCompletions = true,
 			},
+		},
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+			},
+			venvPath = vim.fn.getcwd(),
+			venv = ".venv",
 		},
 	},
 })

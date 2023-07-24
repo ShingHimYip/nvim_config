@@ -5,7 +5,7 @@ end
 
 obsidian.setup({
 	opts = {
-		dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Vault",
+		dir = "/Users/him/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault",
 	},
 	completion = {
 		nvim_cmp = true, -- if using nvim-cmp, otherwise set to false

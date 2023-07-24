@@ -29,6 +29,9 @@ telescope.setup({
 			".git/",
 			"%.svg",
 			"node_modules/*",
+			"venv",
+			".venv",
+			"__pycache__",
 		},
 		mappings = {
 			i = {

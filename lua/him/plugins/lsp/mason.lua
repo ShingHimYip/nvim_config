@@ -41,7 +41,6 @@ mason_null_ls.setup({
 		-- formatter
 		"prettier", -- ts/js formatter
 		"stylua", -- lua formatter
-		"autopep8",
 		"pyright",
 
 		-- linter

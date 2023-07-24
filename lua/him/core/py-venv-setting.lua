@@ -10,4 +10,6 @@ local f = io.open(venv_python_path, "r")
 if f ~= nil then
 	io.close(f)
 	vim.g.python3_host_prog = venv_python_path
+else
+	vim.api.nvim_echo({ { "Failed to find Python interpreter at " .. venv_python_path, "ErrorMsg" } }, true, {})
 end

@@ -74,7 +74,7 @@ return packer.startup(function(use)
 	use("ThePrimeagen/harpoon")
 
 	-- tab bar plugins
-	use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
+	-- use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
 
 	-- Undotree
 	use("mbbill/undotree")
@@ -144,10 +144,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- python env check
-	-- use("plytophogy/vim-virtualenv")
-	-- use("PieterjanMontens/vim-pipenv")
-
 	-- todo-comments
 	use({
 		"folke/todo-comments.nvim",
@@ -155,7 +151,7 @@ return packer.startup(function(use)
 	})
 
 	-- obsidian extension
-	-- use("epwalsh/obsidian.nvim")
+	use({ "epwalsh/obsidian.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- python jupyter notebook
 	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
