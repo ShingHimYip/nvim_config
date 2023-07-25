@@ -31,7 +31,15 @@ null_ls.setup({
 				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
 			end,
 		}),
-		diagnostics.pylint, 
+		diagnostics.pylint.with({
+			-- extra_args = {
+			-- 	"--load-plugins",
+			-- 	-- "pylint_django" , -- only need if u use django
+			-- },
+			env = {
+				["PYTHONPATH"] = vim.fn.expand("%:p:h") .. "/venv/lib/python3.9/site-packages",
+			},
+		}),
 		diagnostics.djlint,
 		------------------------------------------
 	},
