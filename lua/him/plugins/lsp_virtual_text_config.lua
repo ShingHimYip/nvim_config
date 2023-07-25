@@ -16,7 +16,7 @@ vim.cmd("highlight LspDiagnosticsLineErrorHighlight guibg=#8B0000")
 
 -- Define custom sign for warning lines
 vim.fn.sign_define("LspDiagnosticsLineWarning", { text = "", linehl = "LspDiagnosticsLineWarningHighlight" })
-vim.cmd("highlight LspDiagnosticsLineWarningHighlight guibg=#ded03a")
+vim.cmd("highlight LspDiagnosticsLineWarningHighlight guibg=#a3981d")
 
 function ApplyDiagnosticSigns()
 	local bufnr = vim.api.nvim_get_current_buf()
@@ -44,4 +44,8 @@ end
 vim.cmd("autocmd CursorHold,CursorHoldI * lua ApplyDiagnosticSigns()")
 
 -- Use CursorHold event to display diagnostic popup window
-vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
+function CustomDiagnosticFormat(diagnostic)
+	return string.format("%s (%s)", diagnostic.message, diagnostic.source)
+end
+
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float({ format = CustomDiagnosticFormat }, {focus=false})]])

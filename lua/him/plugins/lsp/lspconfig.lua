@@ -115,8 +115,6 @@ lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	root_dir = function()
-		print("in the lsp pyright")
-		print(vim.fn.getcwd())
 		return vim.fn.getcwd()
 	end,
 	filetypes = { "python" },
@@ -136,6 +134,7 @@ lspconfig["pyright"].setup({
 				useLibraryCodeForTypes = true,
 			},
 			venvPath = vim.fn.getcwd(),
+			pythonPath = vim.fn.getcwd(),
 			venv = ".venv",
 		},
 	},
