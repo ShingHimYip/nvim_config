@@ -156,6 +156,9 @@ return packer.startup(function(use)
 	-- python jupyter notebook
 	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
 
+	-- copilot
+	use("github/copilot.vim")
+
 	if packer_bootstrap then
 		require("him.plugins.comment")
 		require("packer").sync()

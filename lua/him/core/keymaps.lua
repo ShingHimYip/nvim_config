@@ -79,26 +79,6 @@ vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 -- set G to the last
 vim.keymap.set("n", "G", "G$")
 
-----------------------
--- Plugin Keybinds
-----------------------
-
--- telescope
--- inside the telescope.lua (him/plugins/telescope.lua)
-
--- undotree
-
--- Barbar tab management
-
--- Fugitive Git keymaps
-
--- python lsp
-
--- harpoon
--- inside the harpoon.lua (him/plugins/harpoon.lua)
-
--- Todo comment
-
 --temp
 vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
 
