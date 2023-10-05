@@ -27,11 +27,17 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
 			".git/",
+			".git",
+			"^./.git/",
 			"%.svg",
 			"node_modules/*",
+			"node_modules",
+			"^node_modules/",
 			"venv",
 			".venv",
 			"__pycache__",
+			"^%.git/",
+			"^%.git/*",
 		},
 		mappings = {
 			i = {
@@ -62,7 +68,7 @@ vim.keymap.set("n", ";b", function()
 		initial_mode = "normal",
 	})
 end)
-vim.keymap.set("n", ";t", function()
+vim.keymap.set("n", ";g", function()
 	builtin.help_tags()
 end)
 vim.keymap.set("n", ";d", function()
@@ -76,11 +82,11 @@ end)
 -- 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 -- end)
 
-vim.keymap.set("n", "<leader>gfs", builtin.git_files, {})
-vim.keymap.set("n", "<leader>gc", builtin.git_commits, {}) -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-vim.keymap.set("n", "<leader>gfc", builtin.git_bcommits, {}) -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-vim.keymap.set("n", "<leader>gb", builtin.git_branches, {}) -- list git branches (use <cr> to checkout) ["gb" for git branch]
--- vim.keymap.set("n", "<leader>gs", builtin.git_status, {}) -- list current changes per file with diff preview ["gs" for git status]
+vim.keymap.set("n", ";gfs", builtin.git_files, {})
+vim.keymap.set("n", ";gc", builtin.git_commits, {}) -- list all git commits (use <cr> to checkout) ["gc" for git commits]
+vim.keymap.set("n", ";gfc", builtin.git_bcommits, {}) -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
+vim.keymap.set("n", ";gb", builtin.git_branches, {}) -- list git branches (use <cr> to checkout) ["gb" for git branch]
+vim.keymap.set("n", ";gs", builtin.git_status, {}) -- list current changes per file with diff preview ["gs" for git status]
 
 vim.keymap.set("n", ";e", function()
 	telescope.extensions.file_browser.file_browser({

@@ -1,6 +1,19 @@
 -- set leader key to space
 vim.g.mapleader = " "
 
+-- Unmap the original behavior of H and L in normal mode
+vim.keymap.set("n", "H", "<nop>")
+vim.keymap.set("n", "L", "<nop>")
+
+vim.keymap.set("v", "H", "<nop>")
+vim.keymap.set("v", "L", "<nop>")
+
+-- Unmap original split navigation behavior
+vim.keymap.set("n", "<C-w>h", "<nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>j", "<nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>k", "<nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>l", "<nop>", { noremap = true, silent = true })
+
 ---------------------
 -- General Keymaps
 ---------------------
@@ -18,6 +31,12 @@ vim.keymap.set("n", "dw", 'vb"_d')
 
 --go back using shift w
 vim.keymap.set("n", "W", "b")
+
+-- Map H to the beginning of the line and L to the end of the line in normal mode
+vim.keymap.set("n", "H", "^") -- Move to the beginning of the line
+vim.keymap.set("n", "L", "$") -- Move to the end of the line
+vim.keymap.set("v", "H", "^") -- Move to the beginning of the line
+vim.keymap.set("v", "L", "$") -- Move to the end of the line
 
 --Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -56,9 +75,24 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- window management
-vim.keymap.set("n", "<c-w>h", "<c-w>s") -- horizontal split window
+-- vim.keymap.set("n", "<c-w>h", "<c-w>s") -- horizontal split window
 vim.keymap.set("n", "<c-w>x", ":close<CR>") -- close current split window
 vim.keymap.set("n", "<c-w>m", ":MaximizerToggle<CR>") -- toggle split window maximization
+
+local function setup_windows_split_resizing()
+	-- Check if the OS is Windows
+	local os_info = vim.loop.os_uname()
+	if os_info.sysname == "Windows_NT" then
+		-- Map <C-w> + HJKL for split resizing
+		vim.keymap.set("n", "<C-w>h", ":vertical resize -5<CR>", { noremap = true, silent = true }) -- Reduce window width by 5 columns
+		vim.keymap.set("n", "<C-w>l", ":vertical resize +5<CR>", { noremap = true, silent = true }) -- Increase window width by 5 columns
+		vim.keymap.set("n", "<C-w>j", ":resize +5<CR>", { noremap = true, silent = true }) -- Increase window height by 5 rows
+		vim.keymap.set("n", "<C-w>k", ":resize -5<CR>", { noremap = true, silent = true }) -- Reduce window height by 5 rows
+	end
+end
+
+-- Call the function to set up the mappings
+setup_windows_split_resizing()
 
 -- vim-maximizer
 vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")

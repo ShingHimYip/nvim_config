@@ -62,7 +62,10 @@ return packer.startup(function(use)
 
 	-- fuzzy finding w/ telescope
 	-- dependency for better sorting performance
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	})
 
 	-- fuzzy finder
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
@@ -158,6 +161,21 @@ return packer.startup(function(use)
 
 	-- copilot
 	use("github/copilot.vim")
+
+	--tailwindcss-colors
+	use("themaxmarchuk/tailwindcss-colors.nvim")
+
+	--add indent line
+	use("lukas-reineke/indent-blankline.nvim")
+
+	--add fuzzy cmd helper
+	-- use({
+	-- 	"gelguy/wilder.nvim",
+	-- 	requires = {
+	-- 		{ "nvim-lua/popup.nvim" },
+	-- 		{ "nvim-lua/plenary.nvim" },
+	-- 	},
+	-- })
 
 	if packer_bootstrap then
 		require("him.plugins.comment")
