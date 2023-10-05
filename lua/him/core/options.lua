@@ -19,8 +19,8 @@ local opt = vim.opt
 opt.relativenumber = true -- show relative line numbers
 opt.nu = true -- shows absolute line number on cursor line (when relative number is on)
 
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 

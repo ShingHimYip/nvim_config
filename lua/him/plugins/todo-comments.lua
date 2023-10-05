@@ -73,4 +73,4 @@ todocomment.setup({
 
 --keymaps:
 --
-vim.keymap.set("n", ";g", "<cmd>TodoTelescope<CR>")
+vim.keymap.set("n", ";t", "<cmd>TodoTelescope<CR>")

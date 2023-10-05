@@ -56,6 +56,10 @@ local on_attach = function(client, bufnr)
 			client.config.settings.python.pythonPath = "/usr/bin/python3"
 		end
 	end
+
+	if client.name == "tailwindcss" then
+		require("tailwindcss-colors").buf_attach(bufnr)
+	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
