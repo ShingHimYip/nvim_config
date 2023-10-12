@@ -6,8 +6,8 @@ require("him.plugins.nvim-cmp")
 
 --lsp setting :
 require("him.plugins.lsp.mason")
-require("him.plugins.lsp.lspsaga")
 require("him.plugins.lsp.lspconfig")
+require("him.plugins.lsp.lspsaga")
 require("him.plugins.lsp.null-ls")
 -- lsp wrap diagnostics text
 require("him.plugins.lsp_virtual_text_config")
