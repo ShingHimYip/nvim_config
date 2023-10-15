@@ -139,7 +139,9 @@ return packer.startup(function(use)
 	use("tpope/vim-fugitive")
 
 	use("norcalli/nvim-colorizer.lua")
-	use("folke/zen-mode.nvim")
+
+	-- use("folke/zen-mode.nvim")
+
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -154,10 +156,10 @@ return packer.startup(function(use)
 	})
 
 	-- obsidian extension
-	use({ "epwalsh/obsidian.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "epwalsh/obsidian.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- python jupyter notebook
-	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
+	-- use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
 
 	-- copilot
 	use("github/copilot.vim")
