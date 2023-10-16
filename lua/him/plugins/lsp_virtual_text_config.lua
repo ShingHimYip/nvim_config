@@ -16,7 +16,7 @@ vim.cmd("highlight LspDiagnosticsLineErrorHighlight guibg=#8B0000")
 
 -- Define custom sign for warning lines
 vim.fn.sign_define("LspDiagnosticsLineWarning", { text = "", linehl = "LspDiagnosticsLineWarningHighlight" })
-vim.cmd("highlight LspDiagnosticsLineWarningHighlight guibg=#a3981d")
+vim.cmd("highlight LspDiagnosticsLineWarningHighlight guibg=#d19a66")
 
 function ApplyDiagnosticSigns()
 	local bufnr = vim.api.nvim_get_current_buf()

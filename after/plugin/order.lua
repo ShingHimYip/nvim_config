@@ -14,6 +14,7 @@ require("him.plugins.lsp_virtual_text_config")
 
 require("him.plugins.autopairs")
 require("him.plugins.treesitter")
+require("him.plugins.nvim-treesitter-context")
 require("him.plugins.gitsigns")
 require("him.plugins.colorizer")
 require("him.plugins.zen-mode")

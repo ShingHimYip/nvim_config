@@ -158,6 +158,18 @@ lspconfig["lua_ls"].setup({
 	},
 })
 
+-- configure omnisharp server for C#
+lspconfig["omnisharp"].setup({
+	cmd = {
+		"C:\\Users\\SHY01\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\omnisharp.cmd",
+		"--languageserver",
+	},
+	capabilities = capabilities,
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern(".git", "solution.sln", "project.csproj"),
+	filetypes = { "cs" },
+})
+
 -- keymaps
 
 -- restart lsp server (not on youtube nvim video)
