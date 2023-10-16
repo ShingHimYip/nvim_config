@@ -14,6 +14,11 @@ treesitter.setup({
 	indent = { enable = true },
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { enable = true },
+	-- enable folding
+	fold = {
+		enable = true,
+		disable = { "c", "ruby" }, -- You can customize this list based on which languages you don't want folding for
+	},
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"json",
@@ -33,6 +38,7 @@ treesitter.setup({
 		"dockerfile",
 		"gitignore",
 		"python",
+		"c_sharp",
 	},
 	-- auto install above language parsers
 	auto_install = true,
