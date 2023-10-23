@@ -18,7 +18,10 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
+-- restart lsp server (not on youtube nvim video)
+vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 -- enable keybinds only for when lsp server available
+--
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -27,9 +30,9 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	-- keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
 	keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- jump directly to definition
-
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 	keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- go to implementation
+	-- keymap.set("n", "gi", "<cmd>Lspsaga implementation<CR>", opts) -- see implementation with Lspsaga
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
@@ -46,6 +49,8 @@ local on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 		keymap.set("v", "<leader>js", [[cJSON.stringify(<c-r>")<esc>]], { noremap = true, silent = true }) -- stringify json
 		keymap.set("v", "<leader>cl", [[<esc>`>a)<esc>`<iconsole.log(<esc>]], { noremap = true, silent = true }) -- console.log selected text
+		keymap.set("v", "<leader>ld", [[<esc>`>a)<esc>`<ilogger.debug(<esc>]], { noremap = true, silent = true }) -- logger.debug selected text
+		keymap.set("v", "<leader>tld", [[<esc>`>a)<esc>`<ithis.logger.debug(<esc>]], { noremap = true, silent = true }) -- this.logger.debug selected text
 	end
 
 	if client.name == "pyright" then
@@ -61,6 +66,10 @@ local on_attach = function(client, bufnr)
 
 	if client.name == "tailwindcss" then
 		require("tailwindcss-colors").buf_attach(bufnr)
+	end
+
+	if client.name == "pyright" then
+		vim.keymap.set("n", "<Leader>ii", "<cmd>PyrightOrganizeImports<CR>")
 	end
 end
 
@@ -135,6 +144,8 @@ lspconfig["pyright"].setup({
 			venv = ".venv",
 		},
 	},
+
+	-- python lsp
 })
 
 -- configure lua server (with special settings)
@@ -171,9 +182,3 @@ lspconfig["omnisharp"].setup({
 })
 
 -- keymaps
-
--- restart lsp server (not on youtube nvim video)
-vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
--- python lsp
-vim.keymap.set("n", "<Leader>ii", "<cmd>PyrightOrganizeImports<CR>")
