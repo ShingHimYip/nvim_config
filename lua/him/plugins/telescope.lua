@@ -27,7 +27,7 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
 			".git/",
-			".git",
+			-- ".git",
 			"^./.git/",
 			"%.svg",
 			"node_modules/*",
@@ -36,8 +36,8 @@ telescope.setup({
 			"venv",
 			".venv",
 			"__pycache__",
-			"^%.git/",
-			"^%.git/*",
+			-- "^%.git/",
+			-- "^%.git/*",
 		},
 		mappings = {
 			i = {

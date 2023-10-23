@@ -48,4 +48,4 @@ function CustomDiagnosticFormat(diagnostic)
 	return string.format("%s (%s)", diagnostic.message, diagnostic.source)
 end
 
-vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float({ format = CustomDiagnosticFormat }, {focus=false})]])
+-- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float({ format = CustomDiagnosticFormat }, {focus=false})]])
