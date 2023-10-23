@@ -21,18 +21,15 @@ local keymap = vim.keymap -- for conciseness
 -- restart lsp server (not on youtube nvim video)
 vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 -- enable keybinds only for when lsp server available
---
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
-	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-	-- keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+	keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts) -- Show LSP methods search results
 	keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- jump directly to definition
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-	keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- go to implementation
-	-- keymap.set("n", "gi", "<cmd>Lspsaga implementation<CR>", opts) -- see implementation with Lspsaga
+	keymap.set("n", "gi", "<cmd>Lspsaga finder imp<CR>", opts) -- Search and preview implementation of interfaces
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line

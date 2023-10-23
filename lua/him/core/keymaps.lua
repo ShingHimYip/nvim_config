@@ -115,5 +115,7 @@ vim.keymap.set("n", "G", "G$")
 
 --temp
 vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
+vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>") -- got to declaration
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- go to implementation
 
 -- print("run in keymaps")

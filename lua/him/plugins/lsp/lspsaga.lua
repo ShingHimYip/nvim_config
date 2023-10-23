@@ -1,19 +1,29 @@
--- import lspsaga safely
+-- Import lspsaga safely
 local saga_status, saga = pcall(require, "lspsaga")
 if not saga_status then
 	return
 end
 
 saga.setup({
-	-- keybinds for navigation in lspsaga window
+	-- Keybinds for navigation in lspsaga window
 	scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
-	-- use enter to open file with definition preview
+
+	-- Use enter to open file with definition preview
 	definition = {
-		edit = "<CR>",
+		edit = "o",
 	},
+
 	ui = {
 		colors = {
 			normal_bg = "#022746",
 		},
+	},
+
+	-- Implement configuration
+	implement = {
+		enable = true,
+		sign = true,
+		virtual_text = true,
+		priority = 100,
 	},
 })

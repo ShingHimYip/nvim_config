@@ -44,26 +44,44 @@ treesitter.setup({
 	auto_install = true,
 })
 
--- -- Disable auto folding when starting nvim
--- vim.wo.foldenable = false
+-- Set Neovim's fold method to use Tree-sitter
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 --
--- -- Set folding to use Treesitter
--- vim.wo.foldmethod = "expr"
--- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+-- function ToggleFoldUnderCursor()
+-- 	local parsers = require("nvim-treesitter.parsers")
+-- 	local ts_utils = require("nvim-treesitter.ts_utils")
 --
--- -- Custom function to fold based on Treesitter nodes for TypeScript
--- vim.cmd([[
--- function! FoldFunctionUnderCursorTS()
---     " Use Treesitter to get the current node under the cursor
---     let l:node = nvim_get_node_at_cursor()
---     " Assuming 'function_identifier' as the node name for function names in TypeScript
---     " Adjust if this is not correct!
---     if !empty(l:node) && l:node:type() == 'function_identifier'
---         " Fold the function if the cursor is on a function name in TypeScript
---         normal! zf%
---     endif
--- endfunction
--- ]])
+-- 	local bufnr = vim.api.nvim_get_current_buf()
+-- 	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+-- 	row = row - 1
 --
--- -- Bind the command to zf
--- vim.api.nvim_set_keymap("n", "zf", ":call FoldFunctionUnderCursorTS()<CR>", { noremap = true, silent = true })
+-- 	local parser = parsers.get_parser(bufnr)
+-- 	if not parser then
+-- 		print("Tree-sitter parser not available for this buffer.")
+-- 		return
+-- 	end
+--
+-- 	local root = parser:parse():root()
+-- 	if not root then
+-- 		print("Tree-sitter has not parsed this buffer.")
+-- 		return
+-- 	end
+--
+-- 	local node = ts_utils.get_node_at_cursor()
+--
+-- 	if node then
+-- 		local start_row, _, end_row, _ = node:range()
+-- 		-- Check if the node is already folded
+-- 		if vim.fn.foldclosed(start_row + 1) == -1 then
+-- 			-- If not, fold it
+-- 			vim.cmd(string.format("normal! %dGzv%dGzf", start_row + 1, end_row + 1))
+-- 		else
+-- 			-- If it's already folded, open the fold
+-- 			vim.cmd(string.format("normal! %dGzo", start_row + 1))
+-- 		end
+-- 	end
+-- end
+--
+-- vim.opt.foldlevelstart = 99
+-- vim.api.nvim_set_keymap("n", "zf", ":lua ToggleFoldUnderCursor()<CR>", { noremap = true, silent = true })
