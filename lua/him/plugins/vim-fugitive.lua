@@ -1,11 +1,6 @@
--- import comment plugin safely
-local setup, _ = pcall(require, "vim-fugitive")
-if not setup then
-	return
-end
+-- keymaps for vim-fugitive
+vim.keymap.set("n", "<leader>gs", ":Git<CR>")
+vim.keymap.set("n", "<leader>f", ":diffget //2<CR>")
+vim.keymap.set("n", "<leader>j", ":diffget //3<CR>")
 
--- keymaps
-
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set("n", "<leader>gj", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "<leader>gf", "<cmd>diffget //3<CR>")
+-- print("vim-fugitive keymaps have been set.")

@@ -139,6 +139,16 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
+	use({
+		"kdheepak/lazygit.nvim",
+		requires = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("telescope").load_extension("lazygit")
+		end,
+	})
 
 	use("norcalli/nvim-colorizer.lua")
 
@@ -172,6 +182,15 @@ return packer.startup(function(use)
 	--add indent line
 	use("lukas-reineke/indent-blankline.nvim")
 
+	-- NOTE: force you to use vim keybindings
+	-- hardtime
+	-- use({ "m4xshen/hardtime.nvim",
+	--   requires = {
+	--     { "MunifTanjim/nui.nvim"},
+	--     { "nvim-lua/plenary.nvim"},
+	--   }, }
+	-- )
+
 	--add fuzzy cmd helper
 	-- use({
 	-- 	"gelguy/wilder.nvim",
@@ -186,3 +205,8 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 end)
+
+-- NOTE: if there is an error with plugin , run the following commands
+-- cd ~/.local/share/nvim/site/pack/packer/start/PLUGIN_NAME
+-- git fetch --all
+-- git reset --hard origin/main
