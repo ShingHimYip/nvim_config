@@ -3,7 +3,7 @@ if not setup then
 	return
 end
 
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
+vim.keymap.set("n", ";g", "<cmd>LazyGit<CR>")
 
 -- NOTE: The following is the setting that u need to put into the .gitconfig
 

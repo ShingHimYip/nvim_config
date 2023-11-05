@@ -68,7 +68,7 @@ vim.keymap.set("n", ";b", function()
 		initial_mode = "normal",
 	})
 end)
-vim.keymap.set("n", ";g", function()
+vim.keymap.set("n", "<leader>g", function()
 	builtin.help_tags()
 end)
 vim.keymap.set("n", ";d", function()
