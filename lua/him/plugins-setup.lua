@@ -60,15 +60,18 @@ return packer.startup(function(use)
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
 
-	-- fuzzy finding w/ telescope
-	-- dependency for better sorting performance
-	use({
-		"nvim-telescope/telescope-fzf-native.nvim",
-		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	})
-
 	-- fuzzy finder
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+
+	-- fuzzy finding w/ telescope
+	-- dependency for better sorting performance
+	-- NOTE: Windows
+	-- use({
+	-- 	"nvim-telescope/telescope-fzf-native.nvim",
+	-- 	run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	-- })
+	-- NOTE: Linux, MacOS
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- telescope file browser
 	use("nvim-telescope/telescope-file-browser.nvim")
@@ -181,24 +184,6 @@ return packer.startup(function(use)
 
 	--add indent line
 	use("lukas-reineke/indent-blankline.nvim")
-
-	-- NOTE: force you to use vim keybindings
-	-- hardtime
-	-- use({ "m4xshen/hardtime.nvim",
-	--   requires = {
-	--     { "MunifTanjim/nui.nvim"},
-	--     { "nvim-lua/plenary.nvim"},
-	--   }, }
-	-- )
-
-	--add fuzzy cmd helper
-	-- use({
-	-- 	"gelguy/wilder.nvim",
-	-- 	requires = {
-	-- 		{ "nvim-lua/popup.nvim" },
-	-- 		{ "nvim-lua/plenary.nvim" },
-	-- 	},
-	-- })
 
 	if packer_bootstrap then
 		require("him.plugins.comment")

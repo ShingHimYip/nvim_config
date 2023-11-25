@@ -20,14 +20,14 @@ local function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
 end
 
-local fb_actions = require("telescope").extensions.file_browser.actions
+local fb_actions = telescope.extensions.file_browser.actions
+telescope.load_extension("fzf")
 
 -- configure telescope
 telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
 			".git/",
-			-- ".git",
 			"^./.git/",
 			"%.svg",
 			"node_modules/*",
@@ -36,8 +36,6 @@ telescope.setup({
 			"venv",
 			".venv",
 			"__pycache__",
-			-- "^%.git/",
-			-- "^%.git/*",
 		},
 		mappings = {
 			i = {
@@ -54,14 +52,20 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzf")
-
 vim.keymap.set("n", ";f", function()
 	builtin.find_files({})
 end)
 vim.keymap.set("n", ";r", function()
 	builtin.live_grep({})
 end)
+
+vim.keymap.set("n", ";j", function()
+	builtin.registers({
+		previewer = false,
+		initial_mode = "normal",
+	})
+end)
+
 vim.keymap.set("n", ";b", function()
 	builtin.buffers({
 		previewer = false,
