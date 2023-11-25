@@ -26,9 +26,9 @@ null_ls.setup({
 
 		-- add linter under here ------------
 		diagnostics.eslint_d.with({ -- js/ts linter
-			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
+			-- only enable eslint if root has .eslintrc.js or .eslintrc.json (not in youtube nvim video)
 			condition = function(utils)
-				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+				return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
 			end,
 		}),
 		diagnostics.pylint.with({
@@ -45,7 +45,24 @@ null_ls.setup({
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
-		if current_client.supports_method("textDocument/formatting") then
+		-- Specify files to exclude from formatting
+		local excluded_files = {
+			-- "tailwind.config.js", -- Replace with your file name
+		}
+
+		-- Function to check if the current file is excluded
+		local function is_excluded_file()
+			local file_name = vim.fn.expand("%:t") -- Get the current file name
+			for _, excluded_file in ipairs(excluded_files) do
+				if file_name == excluded_file then
+					return true
+				end
+			end
+			return false
+		end
+
+		-- Set up auto-formatting unless the file is excluded
+		if current_client.supports_method("textDocument/formatting") and not is_excluded_file() then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
@@ -53,7 +70,7 @@ null_ls.setup({
 				callback = function()
 					vim.lsp.buf.format({
 						filter = function(client)
-							--  only use null-ls for formatting instead of lsp server
+							-- only use null-ls for formatting instead of lsp server
 							return client.name == "null-ls"
 						end,
 						bufnr = bufnr,
