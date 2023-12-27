@@ -34,9 +34,9 @@ vim.keymap.set("n", "W", "b")
 
 -- Map H to the beginning of the line and L to the end of the line in normal mode
 vim.keymap.set("n", "H", "^") -- Move to the beginning of the line
-vim.keymap.set("n", "L", "$") -- Move to the end of the line
+vim.keymap.set("n", "L", "g_") -- Move to the end of the line
 vim.keymap.set("v", "H", "^") -- Move to the beginning of the line
-vim.keymap.set("v", "L", "$") -- Move to the end of the line
+vim.keymap.set("v", "L", "g_") -- Move to the end of the line
 
 --Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
