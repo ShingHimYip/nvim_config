@@ -6,8 +6,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-iwfsdfiw]dsfyiysiwieiw""iw]
-
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -18,7 +16,7 @@ require("lazy").setup({
     --lsp
     -- NOTE: if we need more lsp support please use none-ls
     -- https://www.youtube.com/watch?v=SxuwQJ0JHMU&t=90s
-    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
     -- Formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     --lang
