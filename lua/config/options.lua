@@ -63,6 +63,6 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 -- spellcheck
--- opt.spell = true
--- opt.spelllang = "en_gb,cjk"
--- opt.spelloptions = "camel"
+opt.spell = true
+opt.spelllang = "en_gb,cjk"
+opt.spelloptions = "camel"

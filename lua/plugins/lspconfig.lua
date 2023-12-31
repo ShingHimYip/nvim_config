@@ -41,6 +41,8 @@ return {
     servers = {
       -- tsserver will be automatically installed with mason and loaded with lspconfig
       tsserver = {},
+      tailwindcss = {},
+
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
@@ -50,6 +52,20 @@ return {
       tsserver = function(_, opts)
         require("typescript").setup({ server = opts })
         return true
+      end,
+
+
+      tailwindcss = function(_, opts)
+        local original_on_attach = opts.on_attach
+        opts.on_attach = function(client, bufnr)
+          -- Call the original on_attach if it exists
+          if original_on_attach then
+            original_on_attach(client, bufnr)
+          end
+
+          -- Add the tailwindcss-colors plugin
+          require("tailwindcss-colors").buf_attach(bufnr)
+        end
       end,
       -- Specify * to use this function as a fallback for any server
       -- ["*"] = function(server, opts) end,
