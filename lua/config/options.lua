@@ -1,15 +1,19 @@
-function os_based_settings()
-	-- get operating system name
-	local os_name = vim.loop.os_uname().sysname
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
 
-	-- check if OS is Windows
-	if os_name == "Windows_NT" then
-		-- Windows-specific settings
-		vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
-	else
-		-- Linux and MacOS settings
-		vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-	end
+function os_based_settings()
+  -- get operating system name
+  local os_name = vim.loop.os_uname().sysname
+
+  -- check if OS is Windows
+  if os_name == "Windows_NT" then
+    -- Windows-specific settings
+    vim.opt.undodir = os.getenv("USERPROFILE") .. "\\.vim\\undodir"
+  else
+    -- Linux and MacOS settings
+    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+  end
 end
 
 os_based_settings()
