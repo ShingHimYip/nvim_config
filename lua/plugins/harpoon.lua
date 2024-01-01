@@ -1,5 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
+  lazy = false,
   branch = "harpoon2",
   keys = {
     {
@@ -39,4 +40,5 @@ return {
       end,
     },
   },
+  dependencies = { "nvim-lua/plenary.nvim" },
 }
