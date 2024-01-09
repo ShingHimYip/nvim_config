@@ -59,9 +59,7 @@ vim.keymap.set({ "n", "v" }, "yd", "d")
 vim.keymap.set({ "n", "v" }, "c", '"_c')
 vim.keymap.set({ "n", "v" }, "yc", "c")
 vim.keymap.set({ "n", "v" }, "x", '"_x')
-vim.keymap.set({ "n", "v" }, "yx", "x")
 vim.keymap.set({ "n", "v" }, "s", '"_s')
-vim.keymap.set({ "n", "v" }, "ys", "s")
 
 vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "Q", "<nop>") -- do nothing when pressing 'Q'
@@ -118,5 +116,5 @@ vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 vim.keymap.set("n", "G", "G$")
 
 --temp
-vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
+-- vim.keymap.set("n", "<leader>ws", ":w<bar>:so<CR>")
 vim.keymap.set("n", "<leader>ff", ":lua vim.lsp.buf.format()<CR>")
