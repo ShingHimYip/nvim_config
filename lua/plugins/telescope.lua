@@ -26,7 +26,7 @@ return {
     {
       ";j",
       function()
-        require("telescope.builtin").buffers({
+        require("telescope.builtin").registers({
           previewer = false,
           initial_mode = "normal",
         })
@@ -43,7 +43,9 @@ return {
     {
       ";;",
       function()
-        require("telescope.builtin").resume()
+        require("telescope.builtin").resume({
+          initial_mode = "normal",
+        })
       end,
       desc = "Resume",
     },
