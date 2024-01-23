@@ -18,6 +18,14 @@ vim.keymap.set("n", "<C-w>j", "<nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>k", "<nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>l", "<nop>", { noremap = true, silent = true })
 
+-- Unmap the alt key
+vim.keymap.set("i", "<A-j>", "<nop>")
+vim.keymap.set("i", "<A-k>", "<nop>")
+vim.keymap.set("n", "<A-j>", "<nop>")
+vim.keymap.set("n", "<A-k>", "<nop>")
+vim.keymap.set("v", "<A-j>", "<nop>")
+vim.keymap.set("v", "<A-k>", "<nop>")
+
 ---------------------
 -- General Keymaps
 ---------------------
