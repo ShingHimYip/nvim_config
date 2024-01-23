@@ -84,11 +84,25 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- clear search highlights
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 
+-- Navigate to the left split window
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+
+-- Navigate to the right split window
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
+-- Navigate to the window below
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+
+-- Navigate to the window above
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+
 -- window management
 -- vim.keymap.set("n", "<c-w>h", "<c-w>s") -- horizontal split window
 vim.keymap.set("n", "<c-w>x", ":close<CR>") -- close current split window
 vim.keymap.set("n", "<c-w>m", ":MaximizerToggle<CR>") -- toggle split window maximization
 
+-- vim-maximizer
+vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 local function setup_windows_split_resizing()
   -- Check if the OS is Windows
   local os_info = vim.loop.os_uname()
@@ -103,9 +117,6 @@ end
 
 -- Call the function to set up the mappings
 setup_windows_split_resizing()
-
--- vim-maximizer
-vim.keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- reverse indent and indent
 -- -- Set mappings in insert mode
