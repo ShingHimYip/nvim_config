@@ -1,9 +1,7 @@
 local modified_file_indicator = {
   function()
-    local bufname = vim.api.nvim_buf_get_name(0)
     local indicator = ""
     -- Add indicator if the file is modified
-    --
     if vim.bo.modified then
       indicator = "[+]"
     end
